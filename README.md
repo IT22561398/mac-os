@@ -12,8 +12,7 @@
 </p>
 
 <p align="center">
-  <strong>Built for SE4020 – Mobile Application Design and Development @ SLIIT</strong><br/>
-  Bamunusinghe S A N · IT22515612 · April 2026
+  <strong>SE4020 – Mobile Application Design and Development</strong>
 </p>
 
 ---
@@ -222,10 +221,4 @@ All 25 unit tests and 4 UI tests should pass with zero ordering dependencies due
 ## 📄 License
 
 This project was developed for **SE4020 – Mobile Application Design and Development** at SLIIT.  
-© 2026 Bamunusinghe S A N (IT22515612). All rights reserved.
-
----
-
-<p align="center">
-  Made with 🍃 in Swift · Little Stars Nursery & Daycare · SLIIT 2026
-</p>
+© 2026 Hesara P.K.A.N. (IT22561398). All rights reserved.
