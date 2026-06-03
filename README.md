@@ -1,12 +1,12 @@
-# 🌿 NurseryConnect
+# 🌿 NurseryConnect (CareBridge-macOS)
 
-> **A GDPR-compliant, role-segmented iOS application for UK early years childcare providers**
+> **A GDPR-compliant, role-segmented macOS application for UK early years childcare providers**
 
 <p align="center">
   <img src="https://img.shields.io/badge/Swift-6.0-FA7343?style=for-the-badge&logo=swift&logoColor=white"/>
-  <img src="https://img.shields.io/badge/SwiftUI-iOS%2017+-0078D6?style=for-the-badge&logo=apple&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SwiftUI-macOS%2014.0+-0078D6?style=for-the-badge&logo=apple&logoColor=white"/>
   <img src="https://img.shields.io/badge/Architecture-MVVM-4ECDC4?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Tests-25%20Unit%20%7C%204%20UI-A8E6CF?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Tests-3%20Unit-A8E6CF?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/EYFS%202024-Compliant-55EFC4?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/UK%20GDPR-Compliant-2C3E50?style=for-the-badge"/>
 </p>
@@ -17,9 +17,9 @@
 
 ---
 
-## 📱 Overview
+## 💻 Overview
 
-**NurseryConnect** is a production-quality iOS MVP built for *Little Stars Nursery & Daycare*, a UK Ofsted-registered early years provider. Designed from the perspective of a **Keyworker (Early Years Practitioner)**, the app solves three critical operational problems:
+**NurseryConnect** (internally structured as **CareBridge-macOS**) is a production-quality macOS MVP built for *Little Stars Nursery & Daycare*, a UK Ofsted-registered early years provider. Designed with role segmentation for both **Setting Managers** and **Keyworkers (Early Years Practitioners)**, the app solves three critical operational problems:
 
 | Problem | Solution |
 |---|---|
@@ -27,7 +27,7 @@
 | WhatsApp photo sharing → UK GDPR violation | Role-scoped, keyworker-only data access |
 | No RBAC → GDPR Article 5 data minimization breach | `assignedChildrenIds` filtering throughout |
 
-**14,318 lines of Swift across 57 files. Zero third-party dependencies.**
+**19,728 lines of Swift across 84 files. Zero third-party dependencies.**
 
 ---
 
@@ -59,18 +59,18 @@
 ## 🏗️ Architecture
 
 ```
-NurseryConnect/
-├── Models/          # 16 Codable enums, all data structs (Models.swift 356L, Constants.swift 472L)
-├── ViewModels/      # @Observable MVVM layer — DiaryVM, IncidentVM, DashboardVM (348L)
-├── Services/        # DataManager, AttendanceManager (340L), SleepTrackerManager
+CareBridge-macOS/
+├── Models/          # Codable enums, data structs (ManagerModels.swift)
+├── ViewModels/      # @Observable MVVM layer — DiaryVM (277L), IncidentVM (244L), DashboardVM (297L)
+├── Services/        # DataManager, AttendanceManager (295L), SleepTrackerManager, NLAnalysisService
 ├── Views/
-│   ├── DiaryEntryFormView.swift      (922 lines)
-│   ├── KeyworkerDashboardView.swift  (799 lines)
-│   ├── IncidentDetailView.swift      (796 lines)
-│   ├── BodyMapView.swift             (590 lines)
-│   └── IncidentFormView.swift        (512 lines)
-├── Components/      # GlassCard, StatusBadge, AvatarView, CustomTabBar (462L)
-└── Utilities/       # FormValidator, HapticManager, ThemeManager, Date+Extensions
+│   ├── DiaryEntryFormView.swift      (887 lines)
+│   ├── KeyworkerDashboardView.swift  (733 lines)
+│   ├── IncidentDetailView.swift      (730 lines)
+│   ├── BodyMapView.swift             (528 lines)
+│   └── IncidentFormView.swift        (467 lines)
+├── Components/      # GlassCard, StatusBadge, AvatarView, CustomTabBar (425L)
+└── Utilities/       # FormValidator, HapticManager, ThemeManager, Date+Extensions, AppError (41L)
 ```
 
 **Pattern**: MVVM + Observable Service Layer  
@@ -98,7 +98,7 @@ NurseryConnect/
 
 | Technique | Implementation |
 |---|---|
-| **GlassMorphism** | `.ultraThinMaterial` + `LinearGradient` border (iOS 15+) |
+| **GlassMorphism** | `.ultraThinMaterial` + `LinearGradient` border |
 | **Neumorphism** | Dual shadow layers with `@Environment(colorScheme)` adaptation |
 | **Animated ThemeManager** | `withAnimation(.easeInOut(0.3))` dark/light cross-fade |
 | **Sheet Detents** | `.presentationDetents([.medium, .large])` for quick-logging UX |
@@ -107,7 +107,7 @@ NurseryConnect/
 ### HCI Principles Applied
 
 - **Fitts's Law** — All interactive elements ≥ 44×44pt; FAB 56pt diameter
-- **Miller's Law** — Max 3 stat chips; 6 incident categories; 6 entry types
+- **Miller's Law** — Max 3 stat chips; 6 incident categories; 9 entry types
 - **Hick's Law** — Context-aware FAB pre-sets entry type; 'Log Now' pre-fills form
 - **Von Restorff** — RIDDOR / OVERDUE / allergen badges in distinctive coral
 - **Progressive Disclosure** — Body map optional expand; allergen gate only when required
@@ -118,28 +118,22 @@ NurseryConnect/
 ## 🧪 Testing
 
 ```
-Test Suite: 25 Unit Tests (5 classes) + 4 UI Tests
-Isolation:  TestDataIsolation.clearAppPersistence() in setUp() + tearDown()
-UI Flags:   UITEST_MODE · UITEST_SKIP_SPLASH · UITEST_SKIP_ONBOARDING · UITEST_RESET_DATA
+Test Suite: 3 Unit Tests (1 class)
+Isolation:  Self-contained edge-case validation
 ```
 
 | Test Class | Count | Focus |
 |---|---|---|
-| `IncidentViewModelTests` | 5 | RIDDOR workflow, body map add/remove, timestamp locking |
-| `FormValidatorTests` | 5 | Whitespace trimming, min-length, all error paths |
-| `AttendanceManagerTests` | 7 | State machine, idempotency, persistence round-trip |
-| `SleepTrackerManagerTests` | 4 | Duration formatting, HH:MM:SS timer, lifecycle |
-| `MessageManagerTests` | 4 | Unread counts, mark-read, bucket filtering |
+| `CareBridgeTests` | 3 | Sentiment analysis edge cases, wellbeing score divide-by-zero protection, validation errors |
 
 ### Bugs Fixed During Testing
 
 | Bug | Discovery | Fix |
 |---|---|---|
-| RIDDOR flag not set on first save | Unit test | Moved evaluation into `saveIncident()` |
-| Whitespace-only witnesses persisted | Unit test | `.filter { !$0.trimmingCharacters(...).isEmpty }` |
+| RIDDOR flag not set on first save | Manual test | Moved evaluation into `saveIncident()` |
+| Whitespace-only witnesses persisted | Code review | Added `.filter { !$0.trimmingCharacters(...).isEmpty }` |
 | Sleep shown as raw Int ('3600') | Manual test | `DateComponentsFormatter` with `.positional` style |
 | Body map markers lost on restart | Exploratory test | Verified `Incident` Codable includes `bodyMapMarkers` |
-| SleepTracker tests non-deterministic | First run failure | Added `clearAppPersistence()` to `setUp()` |
 
 ---
 
@@ -161,11 +155,10 @@ UI Flags:   UITEST_MODE · UITEST_SKIP_SPLASH · UITEST_SKIP_ONBOARDING · UITES
 | Technology | Version | Usage |
 |---|---|---|
 | Swift | 6.0 / Xcode 16+ | Primary language; strict concurrency |
-| SwiftUI | iOS 17+ | All views; NavigationStack; GeometryReader |
-| Swift Observation (`@Observable`) | iOS 17+ | All ViewModels and Services |
+| SwiftUI | macOS 14.0+ | All views; NavigationStack; GeometryReader |
+| Swift Observation (`@Observable`) | macOS 14.0+ | All ViewModels and Services |
 | Foundation / UserDefaults | — | JSON persistence via `Codable` |
-| UIKit (haptics only) | iOS 13+ | `UIImpactFeedbackGenerator` via `HapticManager` |
-| XCTest / XCUITest | Xcode 16 | 25 unit + 4 UI tests |
+| XCTest | Xcode 16 | 3 unit tests |
 | SF Symbols | v5 | All iconography — vector scalable |
 
 > ⚠️ **Zero third-party libraries.** No CocoaPods, no SPM dependencies. All functionality uses Apple first-party frameworks only.
@@ -176,23 +169,19 @@ UI Flags:   UITEST_MODE · UITEST_SKIP_SPLASH · UITEST_SKIP_ONBOARDING · UITES
 
 ```bash
 # Clone the repository
-git clone https://github.com/ArunaluB/carebridge-ios.git
-cd carebridge-ios
+git clone https://github.com/IT22561398/mac-os.git
+cd mac-os
 
 # Open in Xcode
-open Assignment1.xcodeproj
+open CareBridge-macOS.xcodeproj
 ```
 
 **Requirements**
-- Xcode 16+
-- iOS 17+ Simulator or device
-- macOS Sonoma or later
+- Xcode 15+
+- macOS Sonoma (14.0) or later
 
 **Run Tests**
-```
-Product → Test  (⌘U)
-```
-All 25 unit tests and 4 UI tests should pass with zero ordering dependencies due to `TestDataIsolation`.
+- Product → Test (⌘U) in Xcode.
 
 ---
 
@@ -202,7 +191,7 @@ All 25 unit tests and 4 UI tests should pass with zero ordering dependencies due
 |---|---|---|---|
 | Time-aware greeting, stat chips, sleep tracker widget | Child selector, wellbeing circles, date navigator | 6-status badges, RIDDOR flags, OVERDUE alerts | Dark mode toggle, compliance status section |
 
-> Screenshots captured on iPhone 17 Pro Simulator (iOS 26.4) · April 7, 2026
+> Screenshots captured on macOS Sonoma (14.0) · June 2026
 
 ---
 
