@@ -11,9 +11,9 @@ struct SampleData {
     // MARK: - Keyworker Profile
     static let keyworker = KeyworkerProfile(
         id: UUID(uuidString: "A0000001-0001-0001-0001-000000000001")!,
-        firstName: "Nadeesha",
-        lastName: "Perera",
-        email: "nadeesha.perera@nursery.lk",
+        firstName: "Niluni",
+        lastName: "Senanayake",
+        email: "niluni.senanayake@nursery.lk",
         roomAssignment: "Sunshine Room",
         assignedChildrenIds: children.map { $0.id },
         profileImageName: "person.crop.circle.fill",
@@ -25,16 +25,16 @@ struct SampleData {
     static let children: [ChildProfile] = [
         ChildProfile(
             id: UUID(uuidString: "C0000001-0001-0001-0001-000000000001")!,
-            firstName: "Dineth",
-            lastName: "Jayasinghe",
-            preferredName: "Dinu",
+            firstName: "Roshan",
+            lastName: "Ranasinghe",
+            preferredName: "Rosh",
             dateOfBirth: Calendar.current.date(byAdding: .month, value: -38, to: Date())!,
             roomAssignment: "Sunshine Room",
             profileColor: "6366F1",
-            parentName: "Nimali Jayasinghe",
-            parentEmail: "nimali.jayasinghe@gmail.com",
+            parentName: "Sanduni Ranasinghe",
+            parentEmail: "sanduni.ranasinghe@gmail.com",
             parentPhone: "0771234567",
-            emergencyContact: "Chathura Jayasinghe (Father)",
+            emergencyContact: "Asela Ranasinghe (Father)",
             emergencyPhone: "0712345678",
             medicalConditions: [],
             allergies: [
@@ -50,16 +50,16 @@ struct SampleData {
         ),
         ChildProfile(
             id: UUID(uuidString: "C0000002-0002-0002-0002-000000000002")!,
-            firstName: "Tharushi",
-            lastName: "Fernando",
+            firstName: "Menaka",
+            lastName: "Wickramasinghe",
             preferredName: "",
             dateOfBirth: Calendar.current.date(byAdding: .month, value: -28, to: Date())!,
             roomAssignment: "Sunshine Room",
             profileColor: "FB7185",
-            parentName: "Anupama Fernando",
-            parentEmail: "anupama.fernando@gmail.com",
+            parentName: "Deepani Wickramasinghe",
+            parentEmail: "deepani.w@gmail.com",
             parentPhone: "0763456789",
-            emergencyContact: "Kasun Fernando (Father)",
+            emergencyContact: "Lalith Wickramasinghe (Father)",
             emergencyPhone: "0754567890",
             medicalConditions: ["Mild eczema"],
             allergies: [
@@ -74,16 +74,16 @@ struct SampleData {
         ),
         ChildProfile(
             id: UUID(uuidString: "C0000003-0003-0003-0003-000000000003")!,
-            firstName: "Senuri",
-            lastName: "De Silva",
-            preferredName: "Senu",
+            firstName: "Methmi",
+            lastName: "Kulatunga",
+            preferredName: "Methu",
             dateOfBirth: Calendar.current.date(byAdding: .month, value: -42, to: Date())!,
             roomAssignment: "Sunshine Room",
             profileColor: "A29BFE",
-            parentName: "Dilani De Silva",
-            parentEmail: "dilani.desilva@gmail.com",
+            parentName: "Priyanthi Kulatunga",
+            parentEmail: "priyanthi.k@gmail.com",
             parentPhone: "0775678901",
-            emergencyContact: "Ruwan De Silva (Father)",
+            emergencyContact: "Samantha Kulatunga (Father)",
             emergencyPhone: "0716789012",
             medicalConditions: [],
             allergies: [],
@@ -96,16 +96,16 @@ struct SampleData {
         ),
         ChildProfile(
             id: UUID(uuidString: "C0000004-0004-0004-0004-000000000004")!,
-            firstName: "Rizwan",
-            lastName: "Nizam",
+            firstName: "Faris",
+            lastName: "Mohamed",
             preferredName: "",
             dateOfBirth: Calendar.current.date(byAdding: .month, value: -20, to: Date())!,
             roomAssignment: "Sunshine Room",
             profileColor: "55EFC4",
-            parentName: "Fathima Nizam",
-            parentEmail: "fathima.nizam@gmail.com",
+            parentName: "Shana Mohamed",
+            parentEmail: "shana.mohamed@gmail.com",
             parentPhone: "0757890123",
-            emergencyContact: "Ameen Nizam (Father)",
+            emergencyContact: "Rizwan Mohamed (Father)",
             emergencyPhone: "0748901234",
             medicalConditions: [],
             allergies: [],
@@ -118,16 +118,16 @@ struct SampleData {
         ),
         ChildProfile(
             id: UUID(uuidString: "C0000005-0005-0005-0005-000000000005")!,
-            firstName: "Minoli",
-            lastName: "Wijesinghe",
+            firstName: "Senuri",
+            lastName: "Perera",
             preferredName: "",
             dateOfBirth: Calendar.current.date(byAdding: .month, value: -15, to: Date())!,
             roomAssignment: "Sunshine Room",
             profileColor: "FBBF24",
-            parentName: "Hiruni Wijesinghe",
-            parentEmail: "hiruni.wijesinghe@gmail.com",
+            parentName: "Nilanthi Perera",
+            parentEmail: "nilanthi.perera@gmail.com",
             parentPhone: "0778901234",
-            emergencyContact: "Somalatha Wijesinghe (Grandmother)",
+            emergencyContact: "Kalyani Perera (Grandmother)",
             emergencyPhone: "0729012345",
             medicalConditions: ["Asthma (mild, inhaler in bag)"],
             allergies: [
@@ -142,16 +142,16 @@ struct SampleData {
         ),
         ChildProfile(
             id: UUID(uuidString: "C0000006-0006-0006-0006-000000000006")!,
-            firstName: "Kavindu",
-            lastName: "Rajapaksha",
+            firstName: "Janith",
+            lastName: "Liyanage",
             preferredName: "",
             dateOfBirth: Calendar.current.date(byAdding: .month, value: -32, to: Date())!,
             roomAssignment: "Sunshine Room",
             profileColor: "FD79A8",
-            parentName: "Sachini Rajapaksha",
-            parentEmail: "sachini.rajapaksha@gmail.com",
+            parentName: "Udaya Liyanage",
+            parentEmail: "udaya.liyanage@gmail.com",
             parentPhone: "0760123456",
-            emergencyContact: "Nuwan Rajapaksha (Father)",
+            emergencyContact: "Bandula Liyanage (Father)",
             emergencyPhone: "0701234567",
             medicalConditions: [],
             allergies: [
@@ -369,15 +369,15 @@ struct SampleData {
     static func generateIncidents() -> [Incident] {
         return [
             Incident(
-                childId: children[0].id, // Dineth
+                childId: children[0].id, // Roshan
                 keyworkerId: keyworker.id,
                 category: .minorAccident,
                 status: .acknowledged,
                 dateTime: Date.daysAgo(2).settingTime(hour: 10, minute: 35),
                 location: "Outdoor play area — near climbing frame",
-                description: "Dineth tripped whilst running towards the climbing frame and grazed his left knee on the rubber safety surface. He was upset initially but calmed down quickly after comfort and first aid was applied.",
-                immediateActionTaken: "Wound was cleaned with sterile water and a plaster was applied. Dineth was comforted and given quiet time with a book. He was happy to return to play after 10 minutes.",
-                witnesses: ["Maleesha Wickramasinghe (Room Leader)", "Sanjaya Gunasekara (Volunteer)"],
+                description: "Roshan tripped whilst running towards the climbing frame and grazed his left knee on the rubber safety surface. He was upset initially but calmed down quickly after comfort and first aid was applied.",
+                immediateActionTaken: "Wound was cleaned with sterile water and a plaster was applied. Roshan was comforted and given quiet time with a book. He was happy to return to play after 10 minutes.",
+                witnesses: ["Kavindi Dissanayake (Room Leader)", "Prabath Alwis (Volunteer)"],
                 bodyMapMarkers: [
                     BodyMapMarker(side: .front, xPercent: 0.40, yPercent: 0.78, label: "Grazed left knee")
                 ],
@@ -386,37 +386,37 @@ struct SampleData {
                 countersignedAt: Date.daysAgo(2).settingTime(hour: 11, minute: 20),
                 parentNotifiedAt: Date.daysAgo(2).settingTime(hour: 11, minute: 25),
                 acknowledgedAt: Date.daysAgo(2).settingTime(hour: 11, minute: 45),
-                reviewerName: "Nimali Abeysekera (Setting Manager)"
+                reviewerName: "Sashika Gunawardena (Setting Manager)"
             ),
             Incident(
-                childId: children[1].id, // Tharushi
+                childId: children[1].id, // Menaka
                 keyworkerId: keyworker.id,
                 category: .nearMiss,
                 status: .acknowledged,
                 dateTime: Date.daysAgo(5).settingTime(hour: 14, minute: 10),
                 location: "Main playroom — near art station",
-                description: "A small container of paint was knocked off the art table and narrowly missed Tharushi, who was sitting on the floor nearby. No contact was made and no injury occurred.",
+                description: "A small container of paint was knocked off the art table and narrowly missed Menaka, who was sitting on the floor nearby. No contact was made and no injury occurred.",
                 immediateActionTaken: "Paint was cleaned up immediately. Art table arrangement was adjusted to prevent containers being placed near edges. All children moved to a safe area during cleanup.",
-                witnesses: ["Nadeesha Perera (Keyworker)"],
+                witnesses: ["Niluni Senanayake (Keyworker)"],
                 bodyMapMarkers: [],
                 submittedAt: Date.daysAgo(5).settingTime(hour: 14, minute: 20),
                 reviewedAt: Date.daysAgo(5).settingTime(hour: 14, minute: 45),
                 countersignedAt: Date.daysAgo(5).settingTime(hour: 14, minute: 50),
                 parentNotifiedAt: Date.daysAgo(5).settingTime(hour: 15, minute: 00),
                 acknowledgedAt: Date.daysAgo(5).settingTime(hour: 15, minute: 30),
-                reviewerName: "Nimali Abeysekera (Setting Manager)",
+                reviewerName: "Sashika Gunawardena (Setting Manager)",
                 reviewNotes: "Art station layout reviewed and improved. Staff reminded about table edge safety."
             ),
             Incident(
-                childId: children[4].id, // Minoli
+                childId: children[4].id, // Senuri
                 keyworkerId: keyworker.id,
                 category: .allergicReaction,
                 status: .countersigned,
                 dateTime: Date.daysAgo(8).settingTime(hour: 12, minute: 45),
                 location: "Dining area",
-                description: "Minoli developed a mild rash on her forearms approximately 20 minutes after lunch. The meal was checked immediately and no eggs were present in the planned menu. Investigation revealed a trace amount of egg may have been present in the bread roll glaze (supplier confirmed later).",
-                immediateActionTaken: "Minoli was monitored closely. Antihistamine was administered (parental consent on file). The reaction subsided within 30 minutes. Supplier was contacted. Bread rolls removed from menu pending investigation.",
-                witnesses: ["Nadeesha Perera (Keyworker)", "Chamari Weerasinghe (Catering Staff)"],
+                description: "Senuri developed a mild rash on her forearms approximately 20 minutes after lunch. The meal was checked immediately and no eggs were present in the planned menu. Investigation revealed a trace amount of egg may have been present in the bread roll glaze (supplier confirmed later).",
+                immediateActionTaken: "Senuri was monitored closely. Antihistamine was administered (parental consent on file). The reaction subsided within 30 minutes. Supplier was contacted. Bread rolls removed from menu pending investigation.",
+                witnesses: ["Niluni Senanayake (Keyworker)", "Asha Hettiarachchi (Catering Staff)"],
                 bodyMapMarkers: [
                     BodyMapMarker(side: .front, xPercent: 0.25, yPercent: 0.45, label: "Mild rash — left forearm"),
                     BodyMapMarker(side: .front, xPercent: 0.75, yPercent: 0.45, label: "Mild rash — right forearm")
@@ -425,19 +425,19 @@ struct SampleData {
                 reviewedAt: Date.daysAgo(8).settingTime(hour: 13, minute: 15),
                 countersignedAt: Date.daysAgo(8).settingTime(hour: 13, minute: 20),
                 parentNotifiedAt: Date.daysAgo(8).settingTime(hour: 13, minute: 25),
-                reviewerName: "Nimali Abeysekera (Setting Manager)",
+                reviewerName: "Sashika Gunawardena (Setting Manager)",
                 reviewNotes: "Supplier contacted. New allergen check protocol for all bread products implemented."
             ),
             Incident(
-                childId: children[2].id, // Senuri
+                childId: children[2].id, // Methmi
                 keyworkerId: keyworker.id,
                 category: .firstAidRequired,
                 status: .acknowledged,
                 dateTime: Date.daysAgo(10).settingTime(hour: 15, minute: 20),
                 location: "Book corner — Sunshine Room",
-                description: "Senuri bumped her forehead on the edge of the bookshelf while standing up quickly from sitting position. A small bump formed immediately. She was conscious and responsive at all times.",
-                immediateActionTaken: "Cold compress applied to forehead immediately for 10 minutes. Senuri was monitored for signs of concussion (drowsiness, vomiting, confusion) for the remainder of the session. No concerning symptoms observed.",
-                witnesses: ["Nadeesha Perera (Keyworker)", "Maleesha Wickramasinghe (Room Leader)"],
+                description: "Methmi bumped her forehead on the edge of the bookshelf while standing up quickly from sitting position. A small bump formed immediately. She was conscious and responsive at all times.",
+                immediateActionTaken: "Cold compress applied to forehead immediately for 10 minutes. Methmi was monitored for signs of concussion (drowsiness, vomiting, confusion) for the remainder of the session. No concerning symptoms observed.",
+                witnesses: ["Niluni Senanayake (Keyworker)", "Kavindi Dissanayake (Room Leader)"],
                 bodyMapMarkers: [
                     BodyMapMarker(side: .front, xPercent: 0.55, yPercent: 0.05, label: "Small bump — right side of forehead")
                 ],
@@ -446,19 +446,19 @@ struct SampleData {
                 countersignedAt: Date.daysAgo(10).settingTime(hour: 15, minute: 55),
                 parentNotifiedAt: Date.daysAgo(10).settingTime(hour: 16, minute: 00),
                 acknowledgedAt: Date.daysAgo(10).settingTime(hour: 16, minute: 15),
-                reviewerName: "Nimali Abeysekera (Setting Manager)",
+                reviewerName: "Sashika Gunawardena (Setting Manager)",
                 reviewNotes: "Bookshelf corner protectors to be installed. Head injury monitoring protocol followed correctly."
             ),
             Incident(
-                childId: children[3].id, // Rizwan
+                childId: children[3].id, // Faris
                 keyworkerId: keyworker.id,
                 category: .minorAccident,
                 status: .parentNotified,
                 dateTime: Date.daysAgo(1).settingTime(hour: 9, minute: 50),
                 location: "Garden — sand pit area",
-                description: "Rizwan got sand in his eyes while playing in the sand pit. He became distressed and started rubbing his eyes.",
-                immediateActionTaken: "Eyes were gently flushed with clean water using an eye wash station. Rizwan was comforted and given a damp cloth. He was happy to return to play after 15 minutes. Eyes were checked again 30 minutes later — no redness or irritation remaining.",
-                witnesses: ["Nadeesha Perera (Keyworker)"],
+                description: "Faris got sand in his eyes while playing in the sand pit. He became distressed and started rubbing his eyes.",
+                immediateActionTaken: "Eyes were gently flushed with clean water using an eye wash station. Faris was comforted and given a damp cloth. He was happy to return to play after 15 minutes. Eyes were checked again 30 minutes later — no redness or irritation remaining.",
+                witnesses: ["Niluni Senanayake (Keyworker)"],
                 bodyMapMarkers: [
                     BodyMapMarker(side: .front, xPercent: 0.45, yPercent: 0.10, label: "Sand in both eyes — irritation")
                 ],
@@ -466,7 +466,7 @@ struct SampleData {
                 reviewedAt: Date.daysAgo(1).settingTime(hour: 10, minute: 30),
                 countersignedAt: Date.daysAgo(1).settingTime(hour: 10, minute: 35),
                 parentNotifiedAt: Date.daysAgo(1).settingTime(hour: 10, minute: 40),
-                reviewerName: "Nimali Abeysekera (Setting Manager)"
+                reviewerName: "Sashika Gunawardena (Setting Manager)"
             )
         ]
     }

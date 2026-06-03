@@ -11,7 +11,7 @@ struct ManagerSampleData {
     // MARK: - Setting Manager Profile
     static let settingManager = SettingManagerProfile(
         id: UUID(uuidString: "2B1F7C44-0002-0002-0002-000000000002")!,
-        fullName: "Rebecca Hartley",
+        fullName: "Sashika Gunawardena",
         role: "Setting Manager",
         nurseryName: "Bright Meadows Nursery & Preschool",
         roomsManaged: ["Bluebell Room", "Acorn Room", "Willow Room"],
@@ -23,7 +23,7 @@ struct ManagerSampleData {
     
     /// Positive development observations
     static let positiveNotes: [String] = [
-        "Freddie demonstrated excellent turn-taking skills during group play today, engaging confidently with his peers and sharing resources independently.",
+        "Lahiru demonstrated excellent turn-taking skills during group play today, engaging confidently with his peers and sharing resources independently.",
         "Showed wonderful problem-solving today during the junk-modelling activity, carefully joining boxes together and adapting the design when a piece would not balance. Lovely persistence!",
         "Made super progress with letter sounds today — confidently recognised every sound in their name and had a go at forming the letters without any prompting.",
         "Absolutely thriving outdoors, showing fantastic balance and coordination on the wobble bridge. Real confidence and a brilliant sense of adventure!",
@@ -37,7 +37,7 @@ struct ManagerSampleData {
     
     /// Concern / negative observations
     static let concernNotes: [String] = [
-        "Yusuf seemed unsettled for much of the morning. He was hesitant to join in with activities and needed extra reassurance from his keyworker throughout.",
+        "Imran seemed unsettled for much of the morning. He was hesitant to join in with activities and needed extra reassurance from his keyworker throughout.",
         "Was upset at drop-off and took a long while to settle. Left breakfast untouched and became tearful again during morning carpet time.",
         "Noticeably quiet today — kept away from the other children during free choice and preferred to stay tucked in the reading corner for most of the session.",
         "Found lunchtime difficult — pushed the plate away and grew distressed when gently encouraged. Needed close one-to-one support for around twenty minutes.",
@@ -47,7 +47,7 @@ struct ManagerSampleData {
     
     /// Neutral / factual observations
     static let neutralNotes: [String] = [
-        "Oscar finished his lunch, eating most of his rice. He was settled and calm during the afternoon quiet time.",
+        "Pathum finished his lunch, eating most of his rice. He was settled and calm during the afternoon quiet time.",
         "Took part in the planned water tray activity for around twenty minutes before moving across to the small-world area.",
         "Arrived promptly for the morning session. Had a morning snack and explored the table-top activities on offer.",
         "Completed the planned phonics task alongside the group. Practised the 'm' sound with a little adult support.",
@@ -76,9 +76,9 @@ struct ManagerSampleData {
             for (childIndex, child) in children.enumerated() {
                 // Morning wellbeing — with detailed notes
                 let wellbeingNote: String
-                if dayOffset < 3 && childIndex == 1 { // Tharushi — recent concerns
+                if dayOffset < 3 && childIndex == 1 { // Menaka — recent concerns
                     wellbeingNote = concernNotes[dayOffset % concernNotes.count]
-                } else if childIndex == 0 { // Dineth — mostly positive
+                } else if childIndex == 0 { // Roshan — mostly positive
                     wellbeingNote = positiveNotes[dayOffset % positiveNotes.count]
                 } else {
                     wellbeingNote = neutralNotes[dayOffset % neutralNotes.count]
@@ -194,7 +194,7 @@ struct ManagerSampleData {
                     let napStart = date.settingTime(hour: 12, minute: 45)
                     let napDuration = Int.random(in: 30...90)
                     let napEnd = Calendar.current.date(byAdding: .minute,
-                        value: napDuration, to: napStart)!
+                                                       value: napDuration, to: napStart)!
                     
                     entries.append(DiaryEntry(
                         childId: child.id,
@@ -257,7 +257,7 @@ struct ManagerSampleData {
         
         return [
             ChildWellbeingAlert(
-                childId: children[1].id, // Tharushi
+                childId: children[1].id, // Menaka
                 childName: children[1].fullName,
                 alertType: .lowWellbeingScore,
                 wellbeingScore: 38.5,
@@ -265,7 +265,7 @@ struct ManagerSampleData {
                 recommendedAction: "Review the recent diary entries and arrange a check-in with the keyworker. A parent conversation may also be helpful."
             ),
             ChildWellbeingAlert(
-                childId: children[1].id, // Tharushi
+                childId: children[1].id, // Menaka
                 childName: children[1].fullName,
                 alertType: .concernFlagged,
                 wellbeingScore: 38.5,
@@ -273,7 +273,7 @@ struct ManagerSampleData {
                 recommendedAction: "Several concern entries logged over the last three days — set up a meeting with the parents and keyworker to discuss next steps."
             ),
             ChildWellbeingAlert(
-                childId: children[4].id, // Minoli
+                childId: children[4].id, // Senuri
                 childName: children[4].fullName,
                 alertType: .eyfsGap,
                 wellbeingScore: 62.0,
@@ -281,7 +281,7 @@ struct ManagerSampleData {
                 recommendedAction: "No Mathematics or Literacy activities recorded this week. Plan some focused next-step activities to close the gap."
             ),
             ChildWellbeingAlert(
-                childId: children[3].id, // Rizwan
+                childId: children[3].id, // Faris
                 childName: children[3].fullName,
                 alertType: .incidentOverdue,
                 wellbeingScore: 55.0,
@@ -290,9 +290,9 @@ struct ManagerSampleData {
             )
         ]
     }
-
+    
     // MARK: - Sentiment Results (Pre-computed)
-
+    
     static func generateSentimentResults(for entries: [DiaryEntry]) -> [SentimentAnalysisResult] {
         let nlService = NLAnalysisService.shared
         return entries.compactMap { entry in
